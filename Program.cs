@@ -14,7 +14,7 @@ namespace TreeEvolution
 
 		public static void DrawWorld(int layer)
 		{
-			string s = $"Generation ≈ {alive / Tree.maxLifeTime}";
+			string s = $"Generation ~ {alive / Tree.maxLifeTime}";
 			s += $"  Lifetime: {Tree.maxLifeTime}  Iteration: {alive}";
 			for (int j = worldSize.y - 1; j >= 0; j--)
 			{
@@ -76,16 +76,16 @@ namespace TreeEvolution
 		public static void Main()
 		{
 			int[] energyVertical = new int[]
-			{ 0, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
+			{ 0, 0, 0, 0, 0, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
 			int[] massVertical = new int[]
 			{ 3, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
 			Tree.MtoEconvert = 1;  //масса превращается в энергию, если она закончилась
-			Tree.defaultEnergy = 20; //энергия семени
-			Tree.defaultMass = 5;    //масса семени
+			Tree.defaultEnergy = 10; //энергия семени
+			Tree.defaultMass = 10;    //масса семени
 			Tree.energyConsume = 3;  //расход энергии за один шаг
 			Tree.massToGrow = 1;     //расход массы для роста новых клеток
-			Tree.seedEMscale = 2;    //увеличение расхода для семени
+			Tree.seedEMscale = 5;    //увеличение расхода для семени
 			Tree.maxLifeTime = 100;  //максимальная продолжительность жизни
 			Tree.maxShadow = 3;      //максимальный уровень теней (сколько преград может преодолеть)
             Tree.level3mass = 3; // коэфицент увеличение стоимости роста и поддержания жизни на этом уровне
@@ -138,7 +138,7 @@ namespace TreeEvolution
 			int delay = fastdelay; //текущая задержка
 			alive = 0;             //счетчик шагов
 			int autor = 0;         //счетчик перезапусков (ограничен 50)
-			int skip = 1000;      //сколько шагов скипнуть без отрисовки(супер быстро)
+			int skip = 0000;      //сколько шагов скипнуть без отрисовки(супер быстро)
 			int slowtime = 99000;  //время для включения медленной скорости
 			int reqafter = 500;    //после скольких шагов начинать проверять требования
 			while (true)
@@ -182,7 +182,7 @@ namespace TreeEvolution
 				UpdateShadows();
 				if (alive > skip)
 				{
-					Console.Clear();
+					//Console.Clear();
 					DrawWorld(3);
 					System.Threading.Thread.Sleep(delay);
 				}

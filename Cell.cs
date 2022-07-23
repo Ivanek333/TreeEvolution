@@ -27,9 +27,13 @@ namespace TreeEvolution
 			switch (parent)
 			{
 				case CellType.seed:
-					ret = false; break;
+					if (child == CellType.root)
+						ret = false;
+					break;
 				case CellType.leaf:
-					ret = false; break;
+					if (child == CellType.root)
+						ret = false;
+					break;
 				case CellType.root:
 					if (child == CellType.leaf)
 						ret = false;

@@ -87,7 +87,8 @@ namespace TreeEvolution
 								  Program.world[cell.pos.x][cell.pos.y].shadow;
 						break;
 					case CellType.branch:
-						//energy += Program.world[cell.pos.x][cell.pos.y].energy / 2;
+						energy += Program.world[cell.pos.x][cell.pos.y].energy *
+								  Program.world[cell.pos.x][cell.pos.y].shadow / 3;
 						break;
 					case CellType.root:
 						mass += Program.world[cell.pos.x][cell.pos.y].mass;
