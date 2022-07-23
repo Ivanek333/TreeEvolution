@@ -182,7 +182,7 @@ namespace TreeEvolution
 				UpdateShadows();
 				if (alive > skip)
 				{
-					//Console.Clear();
+					Console.Clear();
 					DrawWorld(3);
 					System.Threading.Thread.Sleep(delay);
 				}
